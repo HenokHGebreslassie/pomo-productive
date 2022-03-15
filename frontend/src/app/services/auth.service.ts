@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(private userService: UserService, private tokenService: TokenService) { }
 
-  private isLoggedIn() : boolean {
+  public isLoggedIn() : boolean {
     const token: string = this.tokenService.getToken()
     return Boolean(token)
   }
