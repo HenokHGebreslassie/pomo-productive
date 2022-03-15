@@ -4,41 +4,39 @@ const { decodeJwt, getLoggedInUser } = require("../middlewares")
 const router = Router()
 
 module.exports = taskRouter = app => {
-    app.use('/users', router)
-    router.get('/:userId/tasks', decodeJwt, getLoggedInUser, async (req, res, next) => {
+    app.use(router)
+    router.get('/tasks', decodeJwt, getLoggedInUser, async (req, res, next) => {
         try {
-            const { userId } = req.params
-            const tasks = await getUserTasksById(userId)
+            const tasks = await getUserTasksById(req.user.id)
             res.status(200).json(tasks)
         } catch (err) {
             next(err)
         }
     })
 
-    router.post('/:userId/tasks', decodeJwt, getLoggedInUser, async (req, res, next) => {
+    router.post('/tasks', decodeJwt, getLoggedInUser, async (req, res, next) => {
         try {
-            const { userId } = req.params
-            await creatTaskForUser(userId, req.body)
+            await creatTaskForUser(req.user.id, req.body)
             res.status(201).end()
         } catch (err) {
             next(err)
         }
     })
 
-    router.patch('/:userId/tasks/:taskId', decodeJwt, getLoggedInUser, async (req, res, next) => {
+    router.patch('/tasks/:taskId', decodeJwt, getLoggedInUser, async (req, res, next) => {
         try {
-            const { userId, taskId } = req.params
-            await markTaskDone(userId, taskId)
+            const {  taskId } = req.params
+            await markTaskDone(req.user.id, taskId)
             res.status(202).end()
         } catch (err) {
             next(err)
         }
     })
 
-    router.delete('/:userId/tasks/:taskId', decodeJwt, getLoggedInUser, async (req, res, next) => {
+    router.delete('/tasks/:taskId', decodeJwt, getLoggedInUser, async (req, res, next) => {
         try {
-            const { userId, taskId } = req.params
-            await deleteTaskForUser(userId, taskId)
+            const { taskId } = req.params
+            await deleteTaskForUser(req.user.id, taskId)
             res.status(200).end()
 
         } catch (err) {
