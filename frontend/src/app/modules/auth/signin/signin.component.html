@@ -1,2 +1,62 @@
 
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-4">
+
+    <br>
+    <br>
+    <br>
+    <mat-card class="text-center">
+
+      <h2 class="text  text-center">Login</h2>
+      <mat-divider></mat-divider>
+      <br><br>
+
+      <div *ngIf="errors">
+        <small class="text text-danger">  {{errors}} </small>
+      </div>
+      <br>
+
+      <form class="" [formGroup]="singInForm" (ngSubmit)="signIn()" >
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput  name="email" formControlName="email" />
+          <mat-error
+            *ngIf="singInForm.get('email')?.hasError('email')"
+          >
+            Invalid Email format
+          </mat-error>
+          <mat-error
+            *ngIf="singInForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password"  name="password" formControlName="password" />
+          <mat-error
+            *ngIf="singInForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <div class="button-container">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="!singInForm.valid"
+          >
+            Sing In
+          </button>
+        </div>
+      </form>
+    </mat-card>
+
+  </div>
+</div>
+
+
+
+
 

@@ -14,6 +14,9 @@ import {storeUser} from "../../../store/actions";
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
+
+  errors: any;
+
   singInForm:FormGroup
   constructor(private formBuilder:FormBuilder,
               private router: Router,
@@ -42,9 +45,9 @@ export class SigninComponent implements OnInit {
     this.singInForm.get(data.name)?.patchValue(data.value)
   }
 
-  getUserFromToken(data: {token:string, user:object}): void {
+  getUserFromToken(data: {accessToken:string, user:object}): void {
     try{
-      const token = data.token
+      const token = data.accessToken
       this.tokenService.saveToken(token)
       this.userService.setLoggedInUser(data.user)
       const user = User.createUserFromObject(data.user)

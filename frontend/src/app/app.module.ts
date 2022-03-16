@@ -9,10 +9,11 @@ import {AuthModule} from "./modules/auth/auth.module";
 import {PomodroModule} from "./modules/pomodro/pomodro.module";
 import {TasksModule} from "./modules/tasks/tasks.module";
 import {MaterialModule} from "./core/material.module";
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,9 +23,11 @@ import {MaterialModule} from "./core/material.module";
     TasksModule,
     MaterialModule,
     BrowserAnimationsModule,
+    DashboardModule
   ],
   exports: [
-    MaterialModule
+    MaterialModule,
+    PomodroModule
   ],
   providers: [],
   bootstrap: [AppComponent]

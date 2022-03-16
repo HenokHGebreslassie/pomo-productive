@@ -21,6 +21,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatFormFieldModule, MatHint} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {MatDivider, MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [],
@@ -47,7 +48,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatTooltipModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule,
   ],
   exports : [
     MatToolbarModule,
@@ -71,7 +73,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatTooltipModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule,
   ]
 })
 export class MaterialModule { }
