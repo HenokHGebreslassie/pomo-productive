@@ -1,0 +1,52 @@
+<div class="p-4">
+    <div class="flex align-middle flex-col w-3/4 h-80 bg-slate-400 p-4 rounded-lg backdrop-blur-sm">
+        <div class="pomo-header mb-4 flex justify-center">
+            <ul class="flex">
+                <li class="text-white px-4">
+                    <button class="font-medium"
+                     (click)="setTab('pomodro')">Pomodro</button>
+                </li>
+                <li class="text-white px-4">
+                    <button class="font-medium"
+                     (click)="setTab('shortBreak')">Short break</button>
+                </li>
+                <li class="text-white px-4">
+                    <button class="font-medium"
+                     (click)="setTab('longBreak')">Long break</button>
+                </li>
+            </ul>
+        </div>
+        <div class="h-40 flex items-center justify-center">
+            <div class="pomo-content" *ngIf="key === 'pomodro'">
+                <span class="font-bold text-8xl text-white">{{ keys.pomodro }}</span>
+            </div>
+            <div class="pomo-content" *ngIf="key === 'shortBreak'">
+                <span class="font-bold text-8xl text-white">{{ keys.shortBreak }}</span>
+            </div>
+            <div class="pomo-content" *ngIf="key === 'longBreak'">
+                <span class="font-bold text-8xl text-white">{{ keys.longBreak }}</span>
+            </div> 
+        </div>
+        <div class="flex justify-center">
+            <div>
+                <button
+                 *ngIf="'stopped' === toggleControlBtn; else stopped"
+                 (click)="handleStartTimer()" class="bg-blue-500
+                 hover:bg-blue-400 text-white font-bold py-2 px-16 border-b-4
+                 text-2xl
+                  border-blue-700 hover:border-blue-500 rounded uppercase">
+                    start
+                  </button>
+                  <ng-template #stopped>
+                    <button
+                    (click)="handleClearInterval()"
+                    class="bg-blue-500
+                    hover:bg-blue-400 text-white font-bold py-2 px-16 border-b-4
+                    text-2xl
+                     border-blue-700 hover:border-blue-500 rounded uppercase">
+                    stop</button>
+                  </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
