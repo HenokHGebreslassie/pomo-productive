@@ -47,12 +47,12 @@ export class SigninComponent implements OnInit {
 
   getUserFromToken(data: {accessToken:string, user:object}): void {
     try{
-      const token = data.accessToken
-      this.tokenService.saveToken(token)
+      const accessToken = data.accessToken
+      this.tokenService.saveToken(accessToken)
       this.userService.setLoggedInUser(data.user)
       const user = User.createUserFromObject(data.user)
       store.dispatch(storeUser(user))
-      if(token) this.router.navigate(['dashboard'])
+      if(accessToken) this.router.navigate(['dashboard'])
     } catch (err) {
       console.log(err)
     }

@@ -7,11 +7,12 @@ import { TaskComponent } from './task/task.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { PomodroModule } from '../modules/pomodro/pomodro.module';
 import { MaterialModule } from '../core/material.module';
+import {AuthenticationGuard} from "../guards/authentication.guard";
 
 const routes: Routes = [
   {
     path: '',
-    component : DashboardComponent,
+    component : DashboardComponent, canActivate: [AuthenticationGuard],
     children: [{
       path: 'tasks',
       component: TaskComponent
@@ -27,6 +28,7 @@ const routes: Routes = [
     DashboardComponent,
     SidenavComponent,
     CreateTaskComponent,
+    TaskComponent,
   ],
   imports: [
     CommonModule,

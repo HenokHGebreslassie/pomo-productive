@@ -10,6 +10,8 @@ import {PomodroModule} from "./modules/pomodro/pomodro.module";
 import {TasksModule} from "./modules/tasks/tasks.module";
 import {MaterialModule} from "./core/material.module";
 import { DashboardModule } from './dashboard/dashboard.module';
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AppInterceptor} from "./Intereceptors/app.interceptor";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,11 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MaterialModule,
     PomodroModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, useClass : AppInterceptor, multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

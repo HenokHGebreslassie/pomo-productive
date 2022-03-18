@@ -1,26 +1,20 @@
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-4">
-
-    <br>
-    <br>
-    <br>
-    <mat-card class="text-center">
-
-      <h2 class="text  text-center">Login</h2>
-      <mat-divider></mat-divider>
-      <br><br>
-
+<div class="flex justify-center" >
+  <div class="col-md-4 flex flex-col w-1/2 pt-20  justify-center ">
+    <mat-card class="text-center" >
+      <div class="flex justify-center" >
+        <img src="/assets/images/pomo.png" alt="logo" class="object-scale-down h-48 w-ful">
+      </div>
       <div *ngIf="errors">
         <small class="text text-danger">  {{errors}} </small>
       </div>
       <br>
 
-      <form class="" [formGroup]="singInForm" (ngSubmit)="signIn()" >
-        <mat-form-field appearance="fill">
+      <form class="flex flex-col items-center " [formGroup]="singInForm" (ngSubmit)="signIn()" >
+        <mat-form-field  appearance="outline" >
           <mat-label>Email</mat-label>
           <input matInput  name="email" formControlName="email" />
+          <mat-hint>Email</mat-hint>
           <mat-error
             *ngIf="singInForm.get('email')?.hasError('email')"
           >
@@ -33,21 +27,23 @@
 
         </mat-form-field>
         <br>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput type="password"  name="password" formControlName="password" />
+          <mat-hint>Password</mat-hint>
+
           <mat-error
             *ngIf="singInForm.get('password')?.hasError('required')">
             Password is required
           </mat-error>
         </mat-form-field>
-        <div class="button-container">
+        <div class=" w-full">
           <button
             mat-raised-button
-            color="primary"
+            color="warn"
             [disabled]="!singInForm.valid"
           >
-            Sing In
+            Sign In
           </button>
         </div>
       </form>

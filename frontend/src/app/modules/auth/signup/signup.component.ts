@@ -44,8 +44,8 @@ export class SignupComponent implements OnInit {
           [Validators.minLength(3), Validators.required, Validators.email],
           [EmailValidator.createValidator(this.signUpService)],
         ],
-        firstname:[null, Validators.required],
-        lastname:[null, Validators.required]
+        firstName:[null, Validators.required],
+        lastName:[null, Validators.required]
     });
   }
 
@@ -56,6 +56,7 @@ export class SignupComponent implements OnInit {
     this.subscription = this.signUpService.signUp(this.registrationForm.value)
       .subscribe((resp)=> {
       this.getUserFromToken(resp);
+      this.router.navigateByUrl('dashboard')
     }, error => this.errors = error);
 
   }

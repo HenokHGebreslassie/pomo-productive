@@ -19,8 +19,7 @@ export class TaskComponent implements OnInit {
 
   getTasks() {
     this.taskService.getTasks().subscribe((data) => {
-      console.log(data)
-      this.tasks = data.map((task: any) => Task.createTaskFromObject(task))
+      this.tasks = data.tasks.map((task: any) => Task.createTaskFromObject(task))
     })
   }
 

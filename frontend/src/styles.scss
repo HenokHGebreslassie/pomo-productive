@@ -5,3 +5,41 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-card {
+  background: #fff;
+  color: #fff;
+}
+.mat-raised-button.mat-warn.mat-button-disabled, .mat-raised-button.mat-button-disabled.mat-button-disabled {
+  background: #dcaead;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #777;
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: darkblue !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: gray !important;
+}
+
+::ng-deep .mat-input-element {
+  caret-color: darkblue !important;
+}
+
+::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+  caret-color: red!important;
+}
+::ng-deep .mat-raise-button-.mat-button-disabled.mat-button-disabled {
+
+  color: #ffaca6;
+  background-color: #008cba
+
+}
+
+.mat-form-field-label {
+  color: #777;
+}
+.mat-input-element {
+  color: #777 !important;
+}
