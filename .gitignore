@@ -1,3 +1,4 @@
 .idea
 backend/.access.log
 .DS_Store
+backend/src/.env
