@@ -1,0 +1,23 @@
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: darkblue !important;
+}
+
+::ng-deep .mat-form-field-label {
+  color: gray !important;
+}
+
+::ng-deep .mat-input-element {
+  caret-color: darkblue !important;
+}
+
+::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+  caret-color: red!important;
+}
+::ng-deep .mat-raise-button-.mat-button-disabled.mat-button-disabled {
+
+  color: #ffaca6;
+  background-color: #008cba
+
+}
+
+

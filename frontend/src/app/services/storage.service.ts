@@ -11,7 +11,7 @@ export class StorageService {
       throw new Error('Your Browser does not support storage')
     }
   }
-  setItem(key: string, value: string | object) : void {
+  setItem(key: string, value: string | object = '') : void {
     this.storage.setItem(key, JSON.stringify(value))
   }
   getItem(key: string) : any {

@@ -12,7 +12,7 @@ export class AuthService {
 
   public isLoggedIn() : boolean {
     const token: string = this.tokenService.getToken()
-    return Boolean(token)
+    return !!token;
   }
 
   public getUser() : User {

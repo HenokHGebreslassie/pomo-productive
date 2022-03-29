@@ -17,6 +17,7 @@ module.exports = authRouter = app => {
 
     route.post('/signup', async (req, res, next) => {
         try {
+            console.log(req.body)
             const { newUser, accessToken } = await signUp(req.body)
             res.status(200).json({ user: newUser, accessToken: accessToken })
         } catch (err) {

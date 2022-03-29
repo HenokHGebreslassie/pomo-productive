@@ -1,0 +1,38 @@
+<div class="flex justify-center pt-10">
+    <form [formGroup]="createTaskForm" class="flex flex-col w-1/2" (ngSubmit)="handleSubmit()">
+        <div class="inputContainer mb-2">
+
+            <input
+            type="text"
+            class="input"
+            placeholder="Title"
+            formControlName="title"
+        />
+        </div>
+
+        <div class="inputContainer mb-2">
+            <input
+            type="text"
+            class="input"
+            placeholder="Project name"
+            formControlName="projectName"
+        />
+        </div>
+        <div class="inputContainer mb-2">
+            <input
+            type="text"
+            class="input"
+            placeholder="pomodros"
+            formControlName="pomodros"
+        />
+        </div>
+        <button
+            type="submit"
+            class="bg-blue-400
+            hover:bg-blue-400 text-white py-2 px-16 border-b-4
+            text-lg
+            border-blue-700 hover:border-blue-500 rounded uppercase">
+            Add</button>
+    </form>
+</div>
+

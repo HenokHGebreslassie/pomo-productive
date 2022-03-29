@@ -1,0 +1,83 @@
+
+
+<div class="flex justify-center">
+  <div class="col-md-4 flex flex-col w-1/2 pt-20  justify-center ">
+    <mat-card class="text-center">
+      <div class="flex justify-center" >
+        <img src="/assets/images/pomo.png" alt="logo" class="object-scale-down h-48 w-ful">
+      </div>
+      <h2 class="text  text-center">Sign Up</h2>
+      <div *ngIf="errors">
+        <small class="text text-danger">  {{errors}} </small>
+      </div>
+      <br>
+
+      <form class="flex flex-col items-center " [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput  name="firstname" formControlName="firstName" />
+          <mat-hint>First Name</mat-hint>
+          <mat-error
+            *ngIf="registrationForm.get('firstname')?.hasError('required')">
+            First Name is required
+          </mat-error>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput  name="lastname" formControlName="lastName" />
+          <mat-hint>Last Name</mat-hint>
+
+          <mat-error
+            *ngIf="registrationForm.get('lastname')?.hasError('required')">
+            Last Name is required
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput  name="email" formControlName="email" />
+          <mat-hint>Email</mat-hint>
+          <mat-error
+            *ngIf="registrationForm.get('email')?.hasError('emailAlreadyExists')"
+          >
+            Email address already taken
+          </mat-error>
+          <mat-error
+            *ngIf="registrationForm.get('email')?.hasError('email')"
+          >
+            Invalid Email format
+          </mat-error>
+          <mat-error
+            *ngIf="registrationForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password"  name="password" formControlName="password" />
+          <mat-hint>Password</mat-hint>
+          <mat-error
+            *ngIf="registrationForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <div class="button-container">
+          <button
+            mat-raised-button
+            color="warn"
+            [disabled]="!registrationForm.valid"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,26 @@
+<ul class="fixed h-full w-20 flex flex-col pt-8 items-center top-0 bottom-0 left-0 bg-white shadow-xl">
+    <li>
+        <!-- <button class="font-medium" [routerLink]="['/', 'dashboard', 'tasks']">Tasks</button> -->
+        <button mat-icon-button
+        [routerLink]="['/', 'dashboard', 'tasks']"
+         aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>assignment</mat-icon>
+          </button>
+    </li>
+    <li>
+        <!-- <button class="font-medium" [routerLink]="['/', 'dashboard', 'create-task']">Add task</button> -->
+        <button mat-icon-button
+        [routerLink]="['/', 'dashboard', 'create-task']"
+         aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>add_task</mat-icon>
+          </button>
+    </li>
+    <li>
+        <!-- <button class="font-medium" (click)="handleLogout()">Logout</button> -->
+        <button mat-icon-button
+        (click)="handleLogout()"
+         aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>logout</mat-icon>
+          </button>
+    </li>
+</ul>
